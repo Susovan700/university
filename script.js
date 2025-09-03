@@ -1,13 +1,13 @@
 class UniversityFinder {
-    constructor() {
-        this.apiUrl = "http://universities.hipolabs.com/search";
-        this.universities = [];
-        this.filteredUniversities = [];
-        this.currentFilter = 'all';
-        
-        this.initializeElements();
-        this.bindEvents();
-    }
+constructor() {
+    this.apiUrl = "https://universities.hipolabs.com/search"; // ✅ HTTPS
+    this.universities = [];
+    this.filteredUniversities = [];
+    this.currentFilter = 'all';
+    
+    this.initializeElements();
+    this.bindEvents();
+}
 
     initializeElements() {
         this.countryInput = document.getElementById('countryInput');
