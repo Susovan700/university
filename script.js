@@ -1,6 +1,6 @@
 class UniversityFinder {
   constructor() {
-    this.apiUrl = "http://universities.hipolabs.com/search";
+    this.apiUrl = "https://universities.hipolabs.com/search";
     this.universities = [];
     this.filteredUniversities = [];
     this.currentFilter = "all";
