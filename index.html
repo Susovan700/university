@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>University Finder - Explore World Education</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- College Campus Background -->
     <div class="background-container"></div>
-    
+
     <div class="campus-elements">
-        <div class="academic-icons">
-            <div class="academic-icon">🎓</div>
-            <div class="academic-icon">📚</div>
-            <div class="academic-icon">🔬</div>
-            <div class="academic-icon">🏛️</div>
-            <div class="academic-icon">🎯</div>
-        </div>
-        
-        <div class="paper-planes">
-            <div class="paper-plane"></div>
-            <div class="paper-plane"></div>
-            <div class="paper-plane"></div>
-        </div>
+      <div class="academic-icons">
+        <div class="academic-icon">🎓</div>
+        <div class="academic-icon">📚</div>
+        <div class="academic-icon">🔬</div>
+        <div class="academic-icon">🏛️</div>
+        <div class="academic-icon">🎯</div>
+      </div>
+
+      <div class="paper-planes">
+        <div class="paper-plane"></div>
+        <div class="paper-plane"></div>
+        <div class="paper-plane"></div>
+      </div>
     </div>
 
     <div class="container">
-        <div class="header">
-            <h1>🏛️ Campus Connect</h1>
-            <p>Explore prestigious universities and colleges with immersive campus experience</p>
-            
-            <div class="header-stats">
-                <div class="stat-item">
-                    <span class="stat-number">25K+</span>
-                    <span class="stat-label">Universities</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">190+</span>
-                    <span class="stat-label">Countries</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50M+</span>
-                    <span class="stat-label">Students</span>
-                </div>
-            </div>
+      <div class="header">
+        <h1>🏛️ Campus Connect</h1>
+        <p>
+          Explore prestigious universities and colleges with immersive campus
+          experience
+        </p>
+
+        <div class="header-stats">
+          <div class="stat-item">
+            <span class="stat-number">25K+</span>
+            <span class="stat-label">Universities</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">190+</span>
+            <span class="stat-label">Countries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50M+</span>
+            <span class="stat-label">Students</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <div class="search-row">
+          <div class="input-group">
+            <label for="countryInput">Country</label>
+            <input
+              type="text"
+              id="countryInput"
+              class="search-input"
+              placeholder="Enter country name (e.g., India, United States, Canada)"
+              list="countryList"
+            />
+            <datalist id="countryList">
+              <option value="India"></option>
+              <option value="United States"></option>
+              <option value="United Kingdom"></option>
+              <option value="Canada"></option>
+              <option value="Australia"></option>
+              <option value="Germany"></option>
+              <option value="France"></option>
+              <option value="Japan"></option>
+              <option value="China"></option>
+              <option value="Brazil"></option>
+            </datalist>
+          </div>
+          <div class="input-group">
+            <label for="stateSelect">State/Province (Optional)</label>
+            <select id="stateSelect" class="state-select">
+              <option value="">All States/Provinces</option>
+            </select>
+          </div>
+          <button id="searchBtn" class="search-btn">🔍 Search</button>
+        </div>
+      </div>
+
+      <div
+        class="filters-container"
+        id="filtersContainer"
+        style="display: none"
+      >
+        <div class="filter-btn active" data-filter="all">All Universities</div>
+        <div class="filter-btn" data-filter="public">Public</div>
+        <div class="filter-btn" data-filter="private">Private</div>
+      </div>
+
+      <div class="results-container">
+        <div class="results-header">
+          <div class="results-count" id="resultsCount">
+            Ready to search universities worldwide
+          </div>
         </div>
 
-        <div class="search-container">
-            <div class="search-row">
-                <div class="input-group">
-                    <label for="countryInput">Country</label>
-                    <input type="text" id="countryInput" class="search-input" placeholder="Enter country name (e.g., India, United States, Canada)" list="countryList">
-                    <datalist id="countryList">
-                        <option value="India">
-                        <option value="United States">
-                        <option value="United Kingdom">
-                        <option value="Canada">
-                        <option value="Australia">
-                        <option value="Germany">
-                        <option value="France">
-                        <option value="Japan">
-                        <option value="China">
-                        <option value="Brazil">
-                    </datalist>
-                </div>
-                <div class="input-group">
-                    <label for="stateSelect">State/Province (Optional)</label>
-                    <select id="stateSelect" class="state-select">
-                        <option value="">All States/Provinces</option>
-                    </select>
-                </div>
-                <button id="searchBtn" class="search-btn">
-                    🔍 Search
-                </button>
-            </div>
+        <div id="loadingContainer" class="loading" style="display: none">
+          <div class="spinner"></div>
+          <p>Searching universities...</p>
         </div>
 
-        <div class="filters-container" id="filtersContainer" style="display: none;">
-            <div class="filter-btn active" data-filter="all">All Universities</div>
-            <div class="filter-btn" data-filter="public">Public</div>
-            <div class="filter-btn" data-filter="private">Private</div>
-        </div>
+        <div id="errorContainer" style="display: none"></div>
 
-        <div class="results-container">
-            <div class="results-header">
-                <div class="results-count" id="resultsCount">Ready to search universities worldwide</div>
-            </div>
-            
-            <div id="loadingContainer" class="loading" style="display: none;">
-                <div class="spinner"></div>
-                <p>Searching universities...</p>
-            </div>
-            
-            <div id="errorContainer" style="display: none;"></div>
-            
-            <div id="universityGrid" class="university-grid"></div>
-            
-            <div id="noResults" class="no-results" style="display: none;">
-                <div class="no-results-icon">🏫</div>
-                <h3>No Universities Found</h3>
-                <p>Try searching with a different country or check your spelling</p>
-            </div>
+        <div id="universityGrid" class="university-grid"></div>
+
+        <div id="noResults" class="no-results" style="display: none">
+          <div class="no-results-icon">🏫</div>
+          <h3>No Universities Found</h3>
+          <p>Try searching with a different country or check your spelling</p>
         </div>
+      </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script src="script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
